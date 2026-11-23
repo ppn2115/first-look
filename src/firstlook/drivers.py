@@ -8,20 +8,19 @@ import pandas as pd
 
 from .config import Config, DEFAULT
 from .metrics import Registry
-from .prep import period_of
 
 
 def monthly_series(lines: pd.DataFrame) -> pd.DataFrame:
-    d = lines.copy()
-    d["type"] = np.where(d["customer_id"].isna(), "No customer ID",
-                         np.where(d["month"] == d["cohort"], "New customers", "Repeat customers"))
-    m = d.groupby(["month", "type"])["revenue"].sum().unstack(fill_value=0)
+    kind = np.where(lines["customer_id"].isna(), "No customer ID",
+                    np.where(lines["month"] == lines["cohort"], "New customers", "Repeat customers"))
+    m = lines["revenue"].groupby([lines["month"], kind]).sum().unstack(fill_value=0)
+    m.index.name, m.columns.name = "month", "type"
     m["Total"] = m.sum(axis=1)
     return m
 
 
 def driver_tree(lines: pd.DataFrame, reg: Registry, cfg: Config):
-    d = lines.assign(period=period_of(lines["month"], cfg)).dropna(subset=["period"])
+    d = lines[lines["period"].notna()]
     S = "drivers"
     tot = d.groupby("period")["revenue"].sum()
     reg.add("rev_p0", f"Net product revenue {cfg.period_0[0]} to {cfg.period_0[1]}", tot["P0"], "gbp", S)
@@ -74,7 +73,7 @@ def driver_tree(lines: pd.DataFrame, reg: Registry, cfg: Config):
 
 
 def segments(lines: pd.DataFrame, reg: Registry, cfg: Config):
-    d = lines.assign(period=period_of(lines["month"], cfg)).dropna(subset=["period"])
+    d = lines[lines["period"].notna()]
     d = d[d["segment"].notna()]
     t = d.groupby(["segment", "period"]).agg(revenue=("revenue", "sum"),
                                              customers=("customer_id", "nunique")).unstack()
@@ -91,7 +90,7 @@ def segments(lines: pd.DataFrame, reg: Registry, cfg: Config):
 
 
 def concentration(lines: pd.DataFrame, reg: Registry, cfg: Config):
-    d = lines.assign(period=period_of(lines["month"], cfg))
+    d = lines
     p1 = d[(d["period"] == "P1") & (d["kind"] == "sale")]
     S = "concentration"
     by_sku = p1.groupby("stock_code").agg(revenue=("revenue", "sum"),
@@ -130,7 +129,7 @@ def pvm_bridge(lines: pd.DataFrame, reg: Registry, cfg: Config):
     plus revenue from new products and lost revenue from discontinued products.
     Components sum exactly to the change in gross product sales.
     """
-    d = lines.assign(period=period_of(lines["month"], cfg))
+    d = lines
     s = d[(d["kind"] == "sale") & d["period"].notna()]
     g = s.groupby(["stock_code", "period"]).agg(units=("quantity", "sum"), rev=("revenue", "sum")).unstack(fill_value=0)
     u0, u1 = g[("units", "P0")], g[("units", "P1")]

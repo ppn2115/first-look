@@ -11,7 +11,9 @@ from .config import Config, DEFAULT
 def build_lines(sales: pd.DataFrame, cancellations: pd.DataFrame, cfg: Config = DEFAULT) -> pd.DataFrame:
     s = sales.assign(kind="sale")
     c = cancellations.assign(kind="cancellation")
-    lines = pd.concat([s, c], ignore_index=True)
+    cols = ["invoice", "stock_code", "description", "quantity", "invoice_date", "price",
+            "customer_id", "country", "line_revenue"]
+    lines = pd.concat([s[cols + ["kind"]], c[cols + ["kind"]]], ignore_index=True)
     lines["month"] = lines["invoice_date"].dt.to_period("M")
     lines["revenue"] = lines["line_revenue"]
 
@@ -29,6 +31,7 @@ def build_lines(sales: pd.DataFrame, cancellations: pd.DataFrame, cfg: Config = 
     cust = pd.concat([cohort, first_date, median_order, segment], axis=1)
     lines = lines.join(cust, on="customer_id")
     # Customers who only ever cancelled (no sale in file) get no cohort
+    lines["period"] = period_of(lines["month"], cfg)
     m, c = lines["month"], lines["cohort"]
     lines["age"] = ((m.dt.year - c.dt.year) * 12 + (m.dt.month - c.dt.month)).astype("Int64")
     return lines, cust

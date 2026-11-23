@@ -63,14 +63,20 @@ def classify(raw: pd.DataFrame, cfg: Config = DEFAULT) -> pd.Series:
         bucket[m] = name
 
     # 1. Same invoice appears in more than one sheet: keep the first sheet's copy
-    sheets_per_invoice = raw.groupby("invoice")["source_sheet"].transform("nunique")
-    first_sheet = raw.groupby("invoice")["source_sheet"].transform("min")
-    assign((sheets_per_invoice > 1) & (raw["source_sheet"] != first_sheet), "sheet_overlap")
+    # group on integer codes, not text: same result, a fraction of the memory
+    inv_code = pd.factorize(raw["invoice"])[0]
+    sheet_code = pd.Series(pd.factorize(raw["source_sheet"], sort=True)[0], index=raw.index)
+    g = sheet_code.groupby(inv_code)
+    sheets_per_invoice = g.transform("nunique")
+    first_sheet = g.transform("min")
+    assign((sheets_per_invoice > 1) & (sheet_code != first_sheet), "sheet_overlap")
 
     # 2. Exact duplicate lines (among rows not already removed)
     key = ["invoice", "stock_code", "description", "quantity", "invoice_date", "price", "customer_id"]
-    remaining = raw[bucket.isna()]
-    dup_idx = remaining[remaining.duplicated(key, keep="first")].index
+    # hash each row's key once (much lighter than comparing 7 text columns row by row)
+    remaining = bucket.isna()
+    h = pd.util.hash_pandas_object(raw.loc[remaining, key], index=False)
+    dup_idx = h[h.duplicated(keep="first")].index
     assign(raw.index.isin(dup_idx), "duplicate_line")
 
     inv_prefix = raw["invoice"].str[0]
@@ -86,7 +92,7 @@ def classify(raw: pd.DataFrame, cfg: Config = DEFAULT) -> pd.Series:
 
 
 def run_integrity(raw: pd.DataFrame, reg: Registry, cfg: Config = DEFAULT) -> IntegrityResult:
-    df = raw.copy()
+    df = raw  # classified in place; avoids a full copy of the file
     df["bucket"] = classify(df, cfg)
     checks: list[Check] = []
 
@@ -110,12 +116,13 @@ def run_integrity(raw: pd.DataFrame, reg: Registry, cfg: Config = DEFAULT) -> In
                         "PASS" if abs(gap) <= cfg.tie_out_tolerance_gbp else "FAIL",
                         f"Raw £{raw_total:,.2f}; buckets £{g['revenue'].sum():,.2f}; gap £{gap:,.2f}", gap))
 
-    sales = df[df["bucket"] == "sale"].copy()
-    canc = df[df["bucket"] == "cancellation"].copy()
+    sales = df[df["bucket"] == "sale"]
+    canc = df[df["bucket"] == "cancellation"]
     net_product = sales["line_revenue"].sum() + canc["line_revenue"].sum()
 
     # --- Check 3: net revenue reconciles to monthly totals (no rows lost when aggregating)
-    monthly = pd.concat([sales, canc]).groupby(pd.concat([sales, canc])["invoice_date"].dt.to_period("M"))["line_revenue"].sum()
+    monthly = (sales.groupby(sales["invoice_date"].dt.to_period("M"))["line_revenue"].sum()
+               .add(canc.groupby(canc["invoice_date"].dt.to_period("M"))["line_revenue"].sum(), fill_value=0))
     checks.append(Check("Monthly totals reconcile to net product revenue",
                         "PASS" if abs(monthly.sum() - net_product) <= cfg.tie_out_tolerance_gbp else "FAIL",
                         f"Sum of months £{monthly.sum():,.2f} vs net £{net_product:,.2f}"))

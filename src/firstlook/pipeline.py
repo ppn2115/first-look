@@ -54,15 +54,19 @@ def analysis_checks(res_c: dict, res_d: dict, cfg: Config) -> list:
     return checks
 
 
-def run(path, cfg: Config = DEFAULT) -> Results:
+def run(path, cfg: Config = DEFAULT, keep_lines: bool = False) -> Results:
+    import gc
     reg = Registry()
     raw = load_raw(path)
     integ = run_integrity(raw, reg, cfg)
     lines, _ = build_lines(integ.sales, integ.cancellations, cfg)
+    checks, waterfall = integ.checks, integ.waterfall
+    del raw, integ  # free the full raw table before analysis
+    gc.collect()
     c = run_cohorts(lines, reg, cfg)
     d = run_drivers(lines, reg, cfg)
-    checks = integ.checks + analysis_checks(c, d, cfg)
-    return Results(reg, checks, integ.waterfall, c, d, lines)
+    checks = checks + analysis_checks(c, d, cfg)
+    return Results(reg, checks, waterfall, c, d, lines if keep_lines else None)
 
 
 def save(res: Results, out_dir="outputs"):
@@ -78,6 +82,42 @@ def save(res: Results, out_dir="outputs"):
     res.drivers["pvm_bridge"].to_csv(out / "pvm_bridge.csv", index=False)
     res.drivers["monthly"].to_csv(out / "monthly_revenue.csv")
     res.drivers["concentration"]["top_products"].to_csv(out / "top_products.csv", index=False)
+    res.drivers["concentration"]["customer_curve"].to_csv(out / "customer_curve.csv", index=False)
+    res.cohorts["cohort_size"].rename("customers").to_csv(out / "cohort_size.csv")
+    with open(out / "run_info.json", "w") as f:
+        json.dump({"left_censored_cohort": res.cohorts["left_censored_cohort"],
+                   "last_full_month": res.cohorts["last_full_month"],
+                   "pvm_residual": float(res.drivers["pvm_residual"])}, f, indent=2)
+
+
+def load_saved(out_dir="outputs") -> Results:
+    """Rebuild Results from the files save() wrote: the app uses this for the sample data so it
+    never has to hold a million rows in memory. Same numbers, read from disk."""
+    out = Path(out_dir)
+
+    def tri(name):
+        t = pd.read_csv(out / name, index_col=0)
+        t.index = pd.PeriodIndex(t.index, freq="M")
+        t.columns = [int(c) for c in t.columns]
+        return t
+
+    info = json.load(open(out / "run_info.json"))
+    checks = [Check(**c) for c in json.load(open(out / "checks.json"))]
+    size = pd.read_csv(out / "cohort_size.csv", index_col=0)["customers"]
+    size.index = pd.PeriodIndex(size.index, freq="M")
+    monthly = pd.read_csv(out / "monthly_revenue.csv", index_col=0)
+    cohorts = {"customer_triangle": tri("cohort_customer_retention.csv"),
+               "revenue_triangle": tri("cohort_revenue_retention.csv"),
+               "cohort_size": size, "left_censored_cohort": info["left_censored_cohort"],
+               "last_full_month": info["last_full_month"]}
+    drivers = {"monthly": monthly,
+               "driver_tree": pd.read_csv(out / "driver_tree.csv", index_col=0),
+               "pvm_bridge": pd.read_csv(out / "pvm_bridge.csv"),
+               "pvm_residual": info["pvm_residual"],
+               "concentration": {"top_products": pd.read_csv(out / "top_products.csv", dtype={"stock_code": str}),
+                                 "customer_curve": pd.read_csv(out / "customer_curve.csv")}}
+    return Results(Registry.from_json(out / "metrics.json"), checks,
+                   pd.read_csv(out / "integrity_waterfall.csv"), cohorts, drivers, None)
 
 
 if __name__ == "__main__":

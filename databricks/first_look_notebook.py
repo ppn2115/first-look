@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(REPO, "src"))
 RAW_PATH = os.path.join(REPO, "data/raw/online_retail_ii.parquet")
 
 from firstlook.pipeline import run
-res = run(RAW_PATH)
+res = run(RAW_PATH, keep_lines=True)
 for c in res.checks:
     print(f"[{c.status}] {c.name}: {c.detail}")
 
@@ -31,20 +31,34 @@ for c in res.checks:
 
 # COMMAND ----------
 
+import pandas as pd
 from firstlook.load import load_raw
-raw = load_raw(RAW_PATH)
-spark.createDataFrame(raw.astype({"customer_id": "float"})).write.mode("overwrite").saveAsTable("first_look_raw")
 
-lines = res.lines.copy()
-for col in ["month", "cohort"]:
-    lines[col] = lines[col].astype(str)
-lines["customer_id"] = lines["customer_id"].astype("float")
-lines["age"] = lines["age"].astype("float")
+
+def spark_safe(df: pd.DataFrame) -> pd.DataFrame:
+    """Spark needs one type per column: nullable ints -> float, text/periods -> plain strings."""
+    out = pd.DataFrame(index=df.index)
+    for c in df.columns:
+        s = df[c]
+        if pd.api.types.is_datetime64_any_dtype(s):
+            out[c] = s
+        elif str(s.dtype) in ("Int64", "Int32") or pd.api.types.is_float_dtype(s):
+            out[c] = s.astype("float64")
+        elif pd.api.types.is_integer_dtype(s):
+            out[c] = s.astype("int64")
+        else:
+            out[c] = s.astype("string").fillna("").astype(str)
+    return out
+
+
+raw = load_raw(RAW_PATH)
+spark.createDataFrame(spark_safe(raw)).write.mode("overwrite").saveAsTable("first_look_raw")
+
 keep = ["invoice", "stock_code", "description", "quantity", "invoice_date", "price", "customer_id",
         "country", "kind", "revenue", "month", "cohort", "age", "segment"]
-spark.createDataFrame(lines[keep]).write.mode("overwrite").saveAsTable("first_look_lines")
+spark.createDataFrame(spark_safe(res.lines[keep])).write.mode("overwrite").saveAsTable("first_look_lines")
 
-spark.createDataFrame(res.waterfall).write.mode("overwrite").saveAsTable("first_look_integrity")
+spark.createDataFrame(spark_safe(res.waterfall)).write.mode("overwrite").saveAsTable("first_look_integrity")
 print("Delta tables: first_look_raw, first_look_lines, first_look_integrity")
 
 # COMMAND ----------
@@ -53,7 +67,7 @@ print("Delta tables: first_look_raw, first_look_lines, first_look_integrity")
 
 # COMMAND ----------
 
-sql = open(os.path.join(REPO, "databricks/cohort_retention.sql")).read()
+sql = open(os.path.join(REPO, "databricks/cohort_retention.sql")).read().strip().rstrip(";")
 spark_tri = spark.sql(sql).toPandas()
 spark_tri["cohort_month"] = spark_tri["cohort_month"].astype(str).str[:7]
 

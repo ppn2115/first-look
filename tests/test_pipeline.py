@@ -87,3 +87,31 @@ def test_full_pipeline_on_real_sample_passes():
     r = run(p)
     assert r.passed
     assert abs(r.drivers["pvm_residual"]) < 0.01
+
+
+def test_saved_outputs_match_a_fresh_run(tmp_path):
+    """The app reads saved outputs for the sample data; they must equal a fresh run exactly."""
+    import os
+    import numpy as np
+    from firstlook.pipeline import save, load_saved
+    p = "data/raw/online_retail_ii.parquet"
+    if not os.path.exists(p):
+        pytest.skip("sample data not present")
+    fresh = run(p)
+    save(fresh, tmp_path)
+    saved = load_saved(tmp_path)
+    assert [(m.id, m.value) for m in saved.registry] == [(m.id, m.value) for m in fresh.registry]
+    assert [c.status for c in saved.checks] == [c.status for c in fresh.checks]
+    assert np.allclose(saved.cohorts["customer_triangle"].values,
+                       fresh.cohorts["customer_triangle"].values, equal_nan=True)
+
+
+def test_committed_outputs_are_current():
+    """Fails if outputs/ was not regenerated after a code change (the app shows these)."""
+    import os
+    from firstlook.pipeline import load_saved
+    p = "data/raw/online_retail_ii.parquet"
+    if not os.path.exists(p) or not os.path.exists("outputs/run_info.json"):
+        pytest.skip("sample data or outputs not present")
+    assert [(m.id, round(m.value, 9)) for m in load_saved("outputs").registry] == \
+           [(m.id, round(m.value, 9)) for m in run(p).registry]

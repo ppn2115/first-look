@@ -79,13 +79,13 @@ This is the same "AI proposes, code verifies" pattern I used in [LionMeet](https
 pip install -r requirements.txt
 export PYTHONPATH=src                     # the package lives in src/
 python -m firstlook.pipeline              # integrity + analysis → outputs/
-pytest                                    # 35 tests incl. the memo eval set
+pytest                                    # 37 tests incl. the memo eval set
 export ANTHROPIC_API_KEY=...              # optional, never committed
 python -m firstlook.memo                  # writes outputs/memo.json (verified)
 streamlit run app.py
 ```
 
-The public app shows a **pre-generated** memo, so it never calls the API and can't fail during a demo. Uploaded files get the full live analysis.
+The public app shows a **pre-generated** memo, so it never calls the API and can't fail during a demo. For the sample data it also reads the pipeline's saved outputs rather than recomputing a million rows, which keeps it fast and within free-hosting memory. A test checks the saved outputs equal a fresh run. Uploaded files get the full live analysis.
 
 **Databricks:** `databricks/first_look_notebook.py` runs the same pipeline on Databricks, writes raw → clean → analysis Delta tables, and re-computes the cohort triangle in Spark SQL (`databricks/cohort_retention.sql`). It matches the Python result on all 300 cohort cells.
 

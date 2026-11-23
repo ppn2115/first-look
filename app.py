@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
-from firstlook.pipeline import run  # noqa: E402
+from firstlook.pipeline import run, load_saved  # noqa: E402
 from firstlook.metrics import Registry  # noqa: E402
 
 SAMPLE = Path(__file__).parent / "data/raw/online_retail_ii.parquet"
@@ -38,8 +38,14 @@ def style(fig, h=380, legend=True):
     return fig
 
 
+OUTPUTS = Path(__file__).parent / "outputs"
+
+
 @st.cache_resource(show_spinner="Running the pipeline: integrity checks, cohorts, drivers…")
 def run_cached(path: str, _key: str):
+    # Sample data: read the outputs `python -m firstlook.pipeline` saved (same numbers, low memory).
+    if _key == "sample" and (OUTPUTS / "run_info.json").exists():
+        return load_saved(OUTPUTS)
     return run(path)
 
 
