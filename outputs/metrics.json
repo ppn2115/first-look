@@ -1,0 +1,677 @@
+[
+  {
+    "id": "raw_rows",
+    "label": "Raw rows delivered",
+    "value": 1067371.0,
+    "unit": "count",
+    "section": "integrity",
+    "definition": "",
+    "display": "1,067,371"
+  },
+  {
+    "id": "raw_revenue",
+    "label": "Raw revenue as delivered (qty \u00d7 price, all rows)",
+    "value": 19287250.568,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a319.29M"
+  },
+  {
+    "id": "overlap_revenue",
+    "label": "Revenue double-counted across sheets",
+    "value": 377488.45,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a3377.5k"
+  },
+  {
+    "id": "overlap_rows",
+    "label": "Rows double-counted across sheets",
+    "value": 22523.0,
+    "unit": "count",
+    "section": "integrity",
+    "definition": "",
+    "display": "22,523"
+  },
+  {
+    "id": "overlap_share_raw",
+    "label": "Double-counted revenue as share of raw revenue",
+    "value": 0.019571916104325484,
+    "unit": "pct",
+    "section": "integrity",
+    "definition": "",
+    "display": "2.0%"
+  },
+  {
+    "id": "duplicate_line_rows",
+    "label": "Duplicate lines removed",
+    "value": 11812.0,
+    "unit": "count",
+    "section": "integrity",
+    "definition": "",
+    "display": "11,812"
+  },
+  {
+    "id": "gross_product_sales",
+    "label": "Gross product sales (valid sales)",
+    "value": 19642692.150000002,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a319.64M"
+  },
+  {
+    "id": "cancellations_value",
+    "label": "Product cancellations",
+    "value": 716425.97,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a3716.4k"
+  },
+  {
+    "id": "cancellation_rate",
+    "label": "Cancellations as share of gross product sales",
+    "value": 0.0364729011954708,
+    "unit": "pct",
+    "section": "integrity",
+    "definition": "",
+    "display": "3.6%"
+  },
+  {
+    "id": "net_product_revenue",
+    "label": "Net product revenue (sales less cancellations)",
+    "value": 18926266.180000003,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a318.93M"
+  },
+  {
+    "id": "non_product_revenue",
+    "label": "Non-product line revenue (postage, fees, manual)",
+    "value": 76881.598,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a376.9k"
+  },
+  {
+    "id": "missing_customer_share",
+    "label": "Share of valid sales with no customer ID",
+    "value": 0.13104742264160565,
+    "unit": "pct",
+    "section": "integrity",
+    "definition": "",
+    "display": "13.1%"
+  },
+  {
+    "id": "raw_to_net_gap",
+    "label": "Raw revenue minus net product revenue",
+    "value": 360984.38799999654,
+    "unit": "gbp",
+    "section": "integrity",
+    "definition": "",
+    "display": "\u00a3361.0k"
+  },
+  {
+    "id": "cust_ret_m1",
+    "label": "Customer retention at month 1 (weighted avg of cohorts)",
+    "value": 0.20973942759504485,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Share of a cohort buying in month 1 after first purchase; 22 cohorts reached this age; 2009-12 cohort excluded (pre-existing customers)",
+    "display": "21.0%"
+  },
+  {
+    "id": "cohorts_m1",
+    "label": "Cohorts that have reached month 1",
+    "value": 22.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "22"
+  },
+  {
+    "id": "rev_ret_m1",
+    "label": "Revenue retention at month 1 (cohort revenue vs month 0)",
+    "value": 0.19038212032047905,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Cohort revenue in month 1 \u00f7 cohort revenue in its first month; 22 cohorts. If this is above customer retention, the customers who stay buy more per head than the cohort did in month 0. That can mean bigger buyers are the ones who stay (selection), not that customers grew; this data cannot tell which.",
+    "display": "19.0%"
+  },
+  {
+    "id": "cust_ret_m3",
+    "label": "Customer retention at month 3 (weighted avg of cohorts)",
+    "value": 0.21085888134799907,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Share of a cohort buying in month 3 after first purchase; 20 cohorts reached this age; 2009-12 cohort excluded (pre-existing customers)",
+    "display": "21.1%"
+  },
+  {
+    "id": "cohorts_m3",
+    "label": "Cohorts that have reached month 3",
+    "value": 20.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "20"
+  },
+  {
+    "id": "rev_ret_m3",
+    "label": "Revenue retention at month 3 (cohort revenue vs month 0)",
+    "value": 0.21541896192586185,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Cohort revenue in month 3 \u00f7 cohort revenue in its first month; 20 cohorts. If this is above customer retention, the customers who stay buy more per head than the cohort did in month 0. That can mean bigger buyers are the ones who stay (selection), not that customers grew; this data cannot tell which.",
+    "display": "21.5%"
+  },
+  {
+    "id": "cust_ret_m6",
+    "label": "Customer retention at month 6 (weighted avg of cohorts)",
+    "value": 0.1844831943391458,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Share of a cohort buying in month 6 after first purchase; 17 cohorts reached this age; 2009-12 cohort excluded (pre-existing customers)",
+    "display": "18.4%"
+  },
+  {
+    "id": "cohorts_m6",
+    "label": "Cohorts that have reached month 6",
+    "value": 17.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "17"
+  },
+  {
+    "id": "rev_ret_m6",
+    "label": "Revenue retention at month 6 (cohort revenue vs month 0)",
+    "value": 0.1940407977228124,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Cohort revenue in month 6 \u00f7 cohort revenue in its first month; 17 cohorts. If this is above customer retention, the customers who stay buy more per head than the cohort did in month 0. That can mean bigger buyers are the ones who stay (selection), not that customers grew; this data cannot tell which.",
+    "display": "19.4%"
+  },
+  {
+    "id": "cust_ret_m12",
+    "label": "Customer retention at month 12 (weighted avg of cohorts)",
+    "value": 0.1843065693430657,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Share of a cohort buying in month 12 after first purchase; 11 cohorts reached this age; 2009-12 cohort excluded (pre-existing customers)",
+    "display": "18.4%"
+  },
+  {
+    "id": "cohorts_m12",
+    "label": "Cohorts that have reached month 12",
+    "value": 11.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "11"
+  },
+  {
+    "id": "rev_ret_m12",
+    "label": "Revenue retention at month 12 (cohort revenue vs month 0)",
+    "value": 0.2641136313396507,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "Cohort revenue in month 12 \u00f7 cohort revenue in its first month; 11 cohorts. If this is above customer retention, the customers who stay buy more per head than the cohort did in month 0. That can mean bigger buyers are the ones who stay (selection), not that customers grew; this data cannot tell which.",
+    "display": "26.4%"
+  },
+  {
+    "id": "m3_ret_h1_2010",
+    "label": "Month-3 customer retention, Jan\u2013Jun 2010 cohorts",
+    "value": 0.24,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "",
+    "display": "24.0%"
+  },
+  {
+    "id": "m3_ret_h1_2011",
+    "label": "Month-3 customer retention, Jan\u2013Jun 2011 cohorts",
+    "value": 0.20114122681883023,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "",
+    "display": "20.1%"
+  },
+  {
+    "id": "m3_ret_change",
+    "label": "Change in month-3 retention, 2011 vs 2010 cohorts",
+    "value": -0.03885877318116976,
+    "unit": "pp",
+    "section": "cohorts",
+    "definition": "",
+    "display": "-3.9 pts"
+  },
+  {
+    "id": "repeat_90d",
+    "label": "90-day repeat rate, new customers with 90+ days of history",
+    "value": 0.4380952380952381,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "4,305 eligible new customers; second order within 90 days of first",
+    "display": "43.8%"
+  },
+  {
+    "id": "repeat_90d_naive",
+    "label": "90-day repeat rate if recent customers are wrongly included",
+    "value": 0.4311365027545399,
+    "unit": "pct",
+    "section": "cohorts",
+    "definition": "All 4,901 new customers, including those acquired in the last 90 days",
+    "display": "43.1%"
+  },
+  {
+    "id": "repeat_90d_eligible",
+    "label": "New customers with 90+ days of history",
+    "value": 4305.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "4,305"
+  },
+  {
+    "id": "new_customers_total",
+    "label": "New customers acquired after the first month",
+    "value": 4901.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "4,901"
+  },
+  {
+    "id": "existing_customers_dec09",
+    "label": "Customers already active in the first month (2009-12)",
+    "value": 951.0,
+    "unit": "count",
+    "section": "cohorts",
+    "definition": "",
+    "display": "951"
+  },
+  {
+    "id": "rev_p0",
+    "label": "Net product revenue 2009-12 to 2010-11",
+    "value": 9155346.47,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a39.16M"
+  },
+  {
+    "id": "rev_p1",
+    "label": "Net product revenue 2010-12 to 2011-11",
+    "value": 9330523.44,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a39.33M"
+  },
+  {
+    "id": "rev_growth",
+    "label": "Net product revenue growth, P1 vs P0",
+    "value": 0.019133843877346957,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "1.9%"
+  },
+  {
+    "id": "customers_p0",
+    "label": "Active customers, P0",
+    "value": 4239.0,
+    "unit": "count",
+    "section": "drivers",
+    "definition": "",
+    "display": "4,239"
+  },
+  {
+    "id": "customers_p1",
+    "label": "Active customers, P1",
+    "value": 4293.0,
+    "unit": "count",
+    "section": "drivers",
+    "definition": "",
+    "display": "4,293"
+  },
+  {
+    "id": "customers_growth",
+    "label": "Active customers, change P1 vs P0",
+    "value": 0.01273885350318471,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "1.3%"
+  },
+  {
+    "id": "orders_per_customer_p0",
+    "label": "Orders per active customer, P0",
+    "value": 4.291578202406228,
+    "unit": "ratio",
+    "section": "drivers",
+    "definition": "",
+    "display": "4.29x"
+  },
+  {
+    "id": "orders_per_customer_p1",
+    "label": "Orders per active customer, P1",
+    "value": 4.105753552294432,
+    "unit": "ratio",
+    "section": "drivers",
+    "definition": "",
+    "display": "4.11x"
+  },
+  {
+    "id": "orders_per_customer_growth",
+    "label": "Orders per active customer, change P1 vs P0",
+    "value": -0.04329984013983634,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "-4.3%"
+  },
+  {
+    "id": "aov_p0",
+    "label": "Average order value (net), P0",
+    "value": 444.8734394239226,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a3444.87"
+  },
+  {
+    "id": "aov_p1",
+    "label": "Average order value (net), P1",
+    "value": 449.75178202655167,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a3449.75"
+  },
+  {
+    "id": "aov_growth",
+    "label": "Average order value (net), change P1 vs P0",
+    "value": 0.010965686351035453,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "1.1%"
+  },
+  {
+    "id": "revenue_p0",
+    "label": "Revenue from identified customers, P0",
+    "value": 8093137.61,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a38.09M"
+  },
+  {
+    "id": "revenue_p1",
+    "label": "Revenue from identified customers, P1",
+    "value": 7927324.91,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a37.93M"
+  },
+  {
+    "id": "revenue_growth",
+    "label": "Revenue from identified customers, change P1 vs P0",
+    "value": -0.02048806136635062,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "-2.0%"
+  },
+  {
+    "id": "anon_rev_p0",
+    "label": "Net revenue with no customer ID, P0",
+    "value": 1062208.86,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a31.06M"
+  },
+  {
+    "id": "anon_rev_p1",
+    "label": "Net revenue with no customer ID, P1",
+    "value": 1403198.53,
+    "unit": "gbp",
+    "section": "drivers",
+    "definition": "",
+    "display": "\u00a31.40M"
+  },
+  {
+    "id": "anon_rev_growth",
+    "label": "Growth in revenue with no customer ID, P1 vs P0",
+    "value": 0.3210194179702097,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "32.1%"
+  },
+  {
+    "id": "anon_rev_share_p1",
+    "label": "Share of P1 net revenue with no customer ID",
+    "value": 0.15038797544674515,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "",
+    "display": "15.0%"
+  },
+  {
+    "id": "repeat_rev_share_p1",
+    "label": "Share of P1 identified revenue from repeat customers",
+    "value": 0.909554626795283,
+    "unit": "pct",
+    "section": "drivers",
+    "definition": "Repeat = revenue in any month after the customer's first purchase month",
+    "display": "91.0%"
+  },
+  {
+    "id": "new_customers_p1",
+    "label": "New customers acquired in P1",
+    "value": 1585.0,
+    "unit": "count",
+    "section": "drivers",
+    "definition": "",
+    "display": "1,585"
+  },
+  {
+    "id": "large_rev_share_p1",
+    "label": "Large accounts: share of identified P1 revenue",
+    "value": 0.46418038386855015,
+    "unit": "pct",
+    "section": "segments",
+    "definition": "Large accounts = median order value \u2265 \u00a3500",
+    "display": "46.4%"
+  },
+  {
+    "id": "large_rev_growth",
+    "label": "Large accounts: revenue growth P1 vs P0",
+    "value": -0.005772081414061825,
+    "unit": "pct",
+    "section": "segments",
+    "definition": "",
+    "display": "-0.6%"
+  },
+  {
+    "id": "large_customers_p1",
+    "label": "Large accounts: active customers in P1",
+    "value": 657.0,
+    "unit": "count",
+    "section": "segments",
+    "definition": "",
+    "display": "657"
+  },
+  {
+    "id": "small_rev_share_p1",
+    "label": "Small accounts: share of identified P1 revenue",
+    "value": 0.5358196161314498,
+    "unit": "pct",
+    "section": "segments",
+    "definition": "Small accounts = median order value < \u00a3500",
+    "display": "53.6%"
+  },
+  {
+    "id": "small_rev_growth",
+    "label": "Small accounts: revenue growth P1 vs P0",
+    "value": -0.03319777534401436,
+    "unit": "pct",
+    "section": "segments",
+    "definition": "",
+    "display": "-3.3%"
+  },
+  {
+    "id": "small_customers_p1",
+    "label": "Small accounts: active customers in P1",
+    "value": 3663.0,
+    "unit": "count",
+    "section": "segments",
+    "definition": "",
+    "display": "3,663"
+  },
+  {
+    "id": "top10_sku_share",
+    "label": "Top 10 products' share of P1 product sales",
+    "value": 0.08483783519931462,
+    "unit": "pct",
+    "section": "concentration",
+    "definition": "",
+    "display": "8.5%"
+  },
+  {
+    "id": "skus_for_80pct",
+    "label": "Products needed to make 80% of P1 sales",
+    "value": 833.0,
+    "unit": "count",
+    "section": "concentration",
+    "definition": "",
+    "display": "833"
+  },
+  {
+    "id": "sku_count_p1",
+    "label": "Products sold in P1",
+    "value": 3897.0,
+    "unit": "count",
+    "section": "concentration",
+    "definition": "",
+    "display": "3,897"
+  },
+  {
+    "id": "top1pct_cust_share",
+    "label": "Top 1% of customers' share of identified P1 sales",
+    "value": 0.3071714766146444,
+    "unit": "pct",
+    "section": "concentration",
+    "definition": "",
+    "display": "30.7%"
+  },
+  {
+    "id": "top10pct_cust_share",
+    "label": "Top 10% of customers' share of identified P1 sales",
+    "value": 0.6054773989556299,
+    "unit": "pct",
+    "section": "concentration",
+    "definition": "",
+    "display": "60.5%"
+  },
+  {
+    "id": "top_customer_share",
+    "label": "Largest single customer's share of identified P1 sales",
+    "value": 0.032511855842579526,
+    "unit": "pct",
+    "section": "concentration",
+    "definition": "",
+    "display": "3.3%"
+  },
+  {
+    "id": "uk_share_p1",
+    "label": "United Kingdom share of P1 product sales",
+    "value": 0.8463959849462185,
+    "unit": "pct",
+    "section": "concentration",
+    "definition": "",
+    "display": "84.6%"
+  },
+  {
+    "id": "pvm_start",
+    "label": "Gross product sales P0 (bridge start)",
+    "value": 9395871.280000001,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "\u00a39.40M"
+  },
+  {
+    "id": "pvm_end",
+    "label": "Gross product sales P1 (bridge end)",
+    "value": 9632333.240000002,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "\u00a39.63M"
+  },
+  {
+    "id": "pvm_volume",
+    "label": "Bridge: volume effect",
+    "value": -1568010.8720307925,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "-\u00a31.57M"
+  },
+  {
+    "id": "pvm_mix",
+    "label": "Bridge: mix effect",
+    "value": 577666.0969712487,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "\u00a3577.7k"
+  },
+  {
+    "id": "pvm_price",
+    "label": "Bridge: price effect",
+    "value": -115896.4049404561,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "Change in realised price per unit on continuing products (includes changes in discount tiers)",
+    "display": "-\u00a3115.9k"
+  },
+  {
+    "id": "pvm_new",
+    "label": "Bridge: revenue from new products",
+    "value": 2046903.9200000002,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "\u00a32.05M"
+  },
+  {
+    "id": "pvm_lost",
+    "label": "Bridge: revenue lost from discontinued products",
+    "value": -704200.78,
+    "unit": "gbp",
+    "section": "pvm",
+    "definition": "",
+    "display": "-\u00a3704.2k"
+  },
+  {
+    "id": "pvm_new_share_p1",
+    "label": "New products' share of P1 gross product sales",
+    "value": 0.21250343701771676,
+    "unit": "pct",
+    "section": "pvm",
+    "definition": "",
+    "display": "21.3%"
+  }
+]

@@ -1,0 +1,8 @@
+bucket,label,rows,revenue,share_of_raw_revenue
+sheet_overlap,Duplicate invoices across sheets,22523,377488.45,0.019571916104325484
+duplicate_line,Duplicate lines within an invoice,11812,54228.42,0.0028116200289310203
+bad_debt_adjust,Bad-debt adjustments,6,-147614.08000000002,-0.007653453740312294
+non_product,"Non-product lines (postage, fees, manual)",5974,76881.598,0.003986135697721289
+cancellation,Product cancellations / returns,17914,-716425.97,-0.037145054318350676
+invalid,"Invalid lines (zero price, unexplained negatives)",5928,0.0,0.0
+sale,Valid product sales,1003214,19642692.15,1.0184288362276852

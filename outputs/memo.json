@@ -1,0 +1,1664 @@
+{
+  "generated_at": "2026-11-23T02:12:44+00:00",
+  "model": "claude-sonnet-5-5",
+  "metrics_sha256": "1cd0b6705481b2b7",
+  "attempts": [
+    {
+      "memo": {
+        "title": "First-look diligence memo: transaction data review",
+        "sections": [
+          {
+            "heading": "Headline",
+            "claims": [
+              {
+                "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest 12 months, from \u00a39.16M in the prior 12 months.",
+                "metric_ids": [
+                  "rev_growth",
+                  "rev_p1",
+                  "rev_p0"
+                ]
+              },
+              {
+                "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+                "metric_ids": [
+                  "revenue_growth",
+                  "anon_rev_growth",
+                  "anon_rev_p1"
+                ]
+              },
+              {
+                "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+                "metric_ids": [
+                  "m3_ret_change"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Data integrity",
+            "claims": [
+              {
+                "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+                "metric_ids": [
+                  "raw_rows",
+                  "raw_revenue",
+                  "raw_to_net_gap",
+                  "net_product_revenue"
+                ]
+              },
+              {
+                "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+                "metric_ids": [
+                  "overlap_rows",
+                  "overlap_revenue",
+                  "overlap_share_raw"
+                ]
+              },
+              {
+                "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+                "metric_ids": [
+                  "duplicate_line_rows"
+                ]
+              },
+              {
+                "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+                "metric_ids": [
+                  "missing_customer_share"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Growth and its drivers",
+            "claims": [
+              {
+                "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+                "metric_ids": [
+                  "customers_growth",
+                  "customers_p1",
+                  "aov_growth",
+                  "aov_p1",
+                  "orders_per_customer_growth",
+                  "orders_per_customer_p1"
+                ]
+              },
+              {
+                "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so existing customers ordering less often is not offset by the small rise in customer count.",
+                "metric_ids": [
+                  "revenue_p1",
+                  "revenue_p0"
+                ]
+              },
+              {
+                "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+                "metric_ids": [
+                  "pvm_volume",
+                  "pvm_new",
+                  "pvm_mix",
+                  "pvm_lost"
+                ]
+              },
+              {
+                "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest 12 months.",
+                "metric_ids": [
+                  "pvm_price",
+                  "pvm_new_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Customer retention",
+            "claims": [
+              {
+                "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+                "metric_ids": [
+                  "cust_ret_m1",
+                  "cust_ret_m3",
+                  "cust_ret_m6",
+                  "cust_ret_m12"
+                ]
+              },
+              {
+                "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+                "metric_ids": [
+                  "rev_ret_m12",
+                  "cust_ret_m12",
+                  "cohorts_m12"
+                ]
+              },
+              {
+                "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+                "metric_ids": [
+                  "m3_ret_h1_2010",
+                  "m3_ret_h1_2011"
+                ]
+              },
+              {
+                "text": "Among 4,305 new customers with at least 90 days of history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest 12 months.",
+                "metric_ids": [
+                  "repeat_90d",
+                  "repeat_90d_eligible",
+                  "repeat_rev_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Concentration and product",
+            "claims": [
+              {
+                "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+                "metric_ids": [
+                  "top1pct_cust_share",
+                  "top10pct_cust_share",
+                  "top_customer_share"
+                ]
+              },
+              {
+                "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+                "metric_ids": [
+                  "large_customers_p1",
+                  "large_rev_share_p1",
+                  "large_rev_growth",
+                  "small_customers_p1",
+                  "small_rev_share_p1",
+                  "small_rev_growth"
+                ]
+              },
+              {
+                "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+                "metric_ids": [
+                  "top10_sku_share",
+                  "skus_for_80pct",
+                  "sku_count_p1"
+                ]
+              },
+              {
+                "text": "The United Kingdom accounts for 84.6% of product sales.",
+                "metric_ids": [
+                  "uk_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Questions for management",
+            "claims": [
+              {
+                "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+                "metric_ids": [
+                  "anon_rev_growth"
+                ]
+              },
+              {
+                "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+                "metric_ids": [
+                  "duplicate_line_rows",
+                  "overlap_rows"
+                ]
+              },
+              {
+                "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+                "metric_ids": [
+                  "orders_per_customer_growth",
+                  "m3_ret_change"
+                ]
+              },
+              {
+                "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+                "metric_ids": [
+                  "pvm_new_share_p1",
+                  "pvm_lost"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Limitations of this analysis",
+            "claims": [
+              {
+                "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+                "metric_ids": []
+              },
+              {
+                "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+                "metric_ids": [
+                  "existing_customers_dec09",
+                  "cohorts_m12"
+                ]
+              },
+              {
+                "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+                "metric_ids": []
+              },
+              {
+                "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+                "metric_ids": []
+              }
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "claims": 27,
+        "blocked": 2,
+        "verified": 22,
+        "qualitative": 3,
+        "numbers_checked": 65
+      },
+      "claims": [
+        {
+          "section": "Headline",
+          "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest 12 months, from \u00a39.16M in the prior 12 months.",
+          "metric_ids": [
+            "rev_growth",
+            "rev_p1",
+            "rev_p0"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Headline",
+          "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+          "metric_ids": [
+            "revenue_growth",
+            "anon_rev_growth",
+            "anon_rev_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Headline",
+          "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+          "metric_ids": [
+            "m3_ret_change"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+          "metric_ids": [
+            "raw_rows",
+            "raw_revenue",
+            "raw_to_net_gap",
+            "net_product_revenue"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 4,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+          "metric_ids": [
+            "overlap_rows",
+            "overlap_revenue",
+            "overlap_share_raw"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+          "metric_ids": [
+            "duplicate_line_rows"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+          "metric_ids": [
+            "missing_customer_share"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+          "metric_ids": [
+            "customers_growth",
+            "customers_p1",
+            "aov_growth",
+            "aov_p1",
+            "orders_per_customer_growth",
+            "orders_per_customer_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 6,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so existing customers ordering less often is not offset by the small rise in customer count.",
+          "metric_ids": [
+            "revenue_p1",
+            "revenue_p0"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+          "metric_ids": [
+            "pvm_volume",
+            "pvm_new",
+            "pvm_mix",
+            "pvm_lost"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 4,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest 12 months.",
+          "metric_ids": [
+            "pvm_price",
+            "pvm_new_share_p1"
+          ],
+          "status": "BLOCKED",
+          "numbers_checked": 3,
+          "errors": [
+            "wrong_value: '12' matches no computed metric"
+          ]
+        },
+        {
+          "section": "Customer retention",
+          "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+          "metric_ids": [
+            "cust_ret_m1",
+            "cust_ret_m3",
+            "cust_ret_m6",
+            "cust_ret_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+          "metric_ids": [
+            "rev_ret_m12",
+            "cust_ret_m12",
+            "cohorts_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+          "metric_ids": [
+            "m3_ret_h1_2010",
+            "m3_ret_h1_2011"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Among 4,305 new customers with at least 90 days of history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest 12 months.",
+          "metric_ids": [
+            "repeat_90d",
+            "repeat_90d_eligible",
+            "repeat_rev_share_p1"
+          ],
+          "status": "BLOCKED",
+          "numbers_checked": 4,
+          "errors": [
+            "wrong_value: '12' matches no computed metric"
+          ]
+        },
+        {
+          "section": "Concentration and product",
+          "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+          "metric_ids": [
+            "top1pct_cust_share",
+            "top10pct_cust_share",
+            "top_customer_share"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+          "metric_ids": [
+            "large_customers_p1",
+            "large_rev_share_p1",
+            "large_rev_growth",
+            "small_customers_p1",
+            "small_rev_share_p1",
+            "small_rev_growth"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 6,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+          "metric_ids": [
+            "top10_sku_share",
+            "skus_for_80pct",
+            "sku_count_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "The United Kingdom accounts for 84.6% of product sales.",
+          "metric_ids": [
+            "uk_share_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+          "metric_ids": [
+            "anon_rev_growth"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+          "metric_ids": [
+            "duplicate_line_rows",
+            "overlap_rows"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+          "metric_ids": [
+            "orders_per_customer_growth",
+            "m3_ret_change"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+          "metric_ids": [
+            "pvm_new_share_p1",
+            "pvm_lost"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+          "metric_ids": [
+            "existing_customers_dec09",
+            "cohorts_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "memo": {
+        "title": "First-look diligence memo: transaction data review",
+        "sections": [
+          {
+            "heading": "Headline",
+            "claims": [
+              {
+                "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest year, from \u00a39.16M in the prior year.",
+                "metric_ids": [
+                  "rev_growth",
+                  "rev_p1",
+                  "rev_p0"
+                ]
+              },
+              {
+                "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+                "metric_ids": [
+                  "revenue_growth",
+                  "anon_rev_growth",
+                  "anon_rev_p1"
+                ]
+              },
+              {
+                "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+                "metric_ids": [
+                  "m3_ret_change"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Data integrity",
+            "claims": [
+              {
+                "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+                "metric_ids": [
+                  "raw_rows",
+                  "raw_revenue",
+                  "raw_to_net_gap",
+                  "net_product_revenue"
+                ]
+              },
+              {
+                "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+                "metric_ids": [
+                  "overlap_rows",
+                  "overlap_revenue",
+                  "overlap_share_raw"
+                ]
+              },
+              {
+                "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+                "metric_ids": [
+                  "duplicate_line_rows"
+                ]
+              },
+              {
+                "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+                "metric_ids": [
+                  "missing_customer_share"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Growth and its drivers",
+            "claims": [
+              {
+                "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+                "metric_ids": [
+                  "customers_growth",
+                  "customers_p1",
+                  "aov_growth",
+                  "aov_p1",
+                  "orders_per_customer_growth",
+                  "orders_per_customer_p1"
+                ]
+              },
+              {
+                "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so the small rise in customer count did not offset customers ordering less often.",
+                "metric_ids": [
+                  "revenue_p1",
+                  "revenue_p0"
+                ]
+              },
+              {
+                "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+                "metric_ids": [
+                  "pvm_volume",
+                  "pvm_new",
+                  "pvm_mix",
+                  "pvm_lost"
+                ]
+              },
+              {
+                "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest year.",
+                "metric_ids": [
+                  "pvm_price",
+                  "pvm_new_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Customer retention",
+            "claims": [
+              {
+                "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+                "metric_ids": [
+                  "cust_ret_m1",
+                  "cust_ret_m3",
+                  "cust_ret_m6",
+                  "cust_ret_m12"
+                ]
+              },
+              {
+                "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+                "metric_ids": [
+                  "rev_ret_m12",
+                  "cust_ret_m12",
+                  "cohorts_m12"
+                ]
+              },
+              {
+                "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+                "metric_ids": [
+                  "m3_ret_h1_2010",
+                  "m3_ret_h1_2011"
+                ]
+              },
+              {
+                "text": "Among 4,305 new customers with enough history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest year.",
+                "metric_ids": [
+                  "repeat_90d",
+                  "repeat_90d_eligible",
+                  "repeat_rev_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Concentration and product",
+            "claims": [
+              {
+                "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+                "metric_ids": [
+                  "top1pct_cust_share",
+                  "top10pct_cust_share",
+                  "top_customer_share"
+                ]
+              },
+              {
+                "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+                "metric_ids": [
+                  "large_customers_p1",
+                  "large_rev_share_p1",
+                  "large_rev_growth",
+                  "small_customers_p1",
+                  "small_rev_share_p1",
+                  "small_rev_growth"
+                ]
+              },
+              {
+                "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+                "metric_ids": [
+                  "top10_sku_share",
+                  "skus_for_80pct",
+                  "sku_count_p1"
+                ]
+              },
+              {
+                "text": "The United Kingdom accounts for 84.6% of product sales.",
+                "metric_ids": [
+                  "uk_share_p1"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Questions for management",
+            "claims": [
+              {
+                "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+                "metric_ids": [
+                  "anon_rev_growth"
+                ]
+              },
+              {
+                "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+                "metric_ids": [
+                  "duplicate_line_rows",
+                  "overlap_rows"
+                ]
+              },
+              {
+                "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+                "metric_ids": [
+                  "orders_per_customer_growth",
+                  "m3_ret_change"
+                ]
+              },
+              {
+                "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+                "metric_ids": [
+                  "pvm_new_share_p1",
+                  "pvm_lost"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Limitations of this analysis",
+            "claims": [
+              {
+                "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+                "metric_ids": []
+              },
+              {
+                "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+                "metric_ids": [
+                  "existing_customers_dec09",
+                  "cohorts_m12"
+                ]
+              },
+              {
+                "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+                "metric_ids": []
+              },
+              {
+                "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+                "metric_ids": []
+              }
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "claims": 27,
+        "blocked": 0,
+        "verified": 24,
+        "qualitative": 3,
+        "numbers_checked": 63
+      },
+      "claims": [
+        {
+          "section": "Headline",
+          "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest year, from \u00a39.16M in the prior year.",
+          "metric_ids": [
+            "rev_growth",
+            "rev_p1",
+            "rev_p0"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Headline",
+          "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+          "metric_ids": [
+            "revenue_growth",
+            "anon_rev_growth",
+            "anon_rev_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Headline",
+          "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+          "metric_ids": [
+            "m3_ret_change"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+          "metric_ids": [
+            "raw_rows",
+            "raw_revenue",
+            "raw_to_net_gap",
+            "net_product_revenue"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 4,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+          "metric_ids": [
+            "overlap_rows",
+            "overlap_revenue",
+            "overlap_share_raw"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+          "metric_ids": [
+            "duplicate_line_rows"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Data integrity",
+          "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+          "metric_ids": [
+            "missing_customer_share"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+          "metric_ids": [
+            "customers_growth",
+            "customers_p1",
+            "aov_growth",
+            "aov_p1",
+            "orders_per_customer_growth",
+            "orders_per_customer_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 6,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so the small rise in customer count did not offset customers ordering less often.",
+          "metric_ids": [
+            "revenue_p1",
+            "revenue_p0"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+          "metric_ids": [
+            "pvm_volume",
+            "pvm_new",
+            "pvm_mix",
+            "pvm_lost"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 4,
+          "errors": []
+        },
+        {
+          "section": "Growth and its drivers",
+          "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest year.",
+          "metric_ids": [
+            "pvm_price",
+            "pvm_new_share_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+          "metric_ids": [
+            "cust_ret_m1",
+            "cust_ret_m3",
+            "cust_ret_m6",
+            "cust_ret_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+          "metric_ids": [
+            "rev_ret_m12",
+            "cust_ret_m12",
+            "cohorts_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+          "metric_ids": [
+            "m3_ret_h1_2010",
+            "m3_ret_h1_2011"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Customer retention",
+          "text": "Among 4,305 new customers with enough history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest year.",
+          "metric_ids": [
+            "repeat_90d",
+            "repeat_90d_eligible",
+            "repeat_rev_share_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+          "metric_ids": [
+            "top1pct_cust_share",
+            "top10pct_cust_share",
+            "top_customer_share"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+          "metric_ids": [
+            "large_customers_p1",
+            "large_rev_share_p1",
+            "large_rev_growth",
+            "small_customers_p1",
+            "small_rev_share_p1",
+            "small_rev_growth"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 6,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+          "metric_ids": [
+            "top10_sku_share",
+            "skus_for_80pct",
+            "sku_count_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 3,
+          "errors": []
+        },
+        {
+          "section": "Concentration and product",
+          "text": "The United Kingdom accounts for 84.6% of product sales.",
+          "metric_ids": [
+            "uk_share_p1"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+          "metric_ids": [
+            "anon_rev_growth"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 1,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+          "metric_ids": [
+            "duplicate_line_rows",
+            "overlap_rows"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+          "metric_ids": [
+            "orders_per_customer_growth",
+            "m3_ret_change"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Questions for management",
+          "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+          "metric_ids": [
+            "pvm_new_share_p1",
+            "pvm_lost"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+          "metric_ids": [
+            "existing_customers_dec09",
+            "cohorts_m12"
+          ],
+          "status": "VERIFIED",
+          "numbers_checked": 2,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        },
+        {
+          "section": "Limitations of this analysis",
+          "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+          "metric_ids": [],
+          "status": "QUALITATIVE",
+          "numbers_checked": 0,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "final": {
+    "summary": {
+      "claims": 27,
+      "blocked": 0,
+      "verified": 24,
+      "qualitative": 3,
+      "numbers_checked": 63
+    },
+    "claims": [
+      {
+        "section": "Headline",
+        "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest year, from \u00a39.16M in the prior year.",
+        "metric_ids": [
+          "rev_growth",
+          "rev_p1",
+          "rev_p0"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Headline",
+        "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+        "metric_ids": [
+          "revenue_growth",
+          "anon_rev_growth",
+          "anon_rev_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Headline",
+        "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+        "metric_ids": [
+          "m3_ret_change"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 1,
+        "errors": []
+      },
+      {
+        "section": "Data integrity",
+        "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+        "metric_ids": [
+          "raw_rows",
+          "raw_revenue",
+          "raw_to_net_gap",
+          "net_product_revenue"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 4,
+        "errors": []
+      },
+      {
+        "section": "Data integrity",
+        "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+        "metric_ids": [
+          "overlap_rows",
+          "overlap_revenue",
+          "overlap_share_raw"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Data integrity",
+        "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+        "metric_ids": [
+          "duplicate_line_rows"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 1,
+        "errors": []
+      },
+      {
+        "section": "Data integrity",
+        "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+        "metric_ids": [
+          "missing_customer_share"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 1,
+        "errors": []
+      },
+      {
+        "section": "Growth and its drivers",
+        "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+        "metric_ids": [
+          "customers_growth",
+          "customers_p1",
+          "aov_growth",
+          "aov_p1",
+          "orders_per_customer_growth",
+          "orders_per_customer_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 6,
+        "errors": []
+      },
+      {
+        "section": "Growth and its drivers",
+        "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so the small rise in customer count did not offset customers ordering less often.",
+        "metric_ids": [
+          "revenue_p1",
+          "revenue_p0"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Growth and its drivers",
+        "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+        "metric_ids": [
+          "pvm_volume",
+          "pvm_new",
+          "pvm_mix",
+          "pvm_lost"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 4,
+        "errors": []
+      },
+      {
+        "section": "Growth and its drivers",
+        "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest year.",
+        "metric_ids": [
+          "pvm_price",
+          "pvm_new_share_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Customer retention",
+        "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+        "metric_ids": [
+          "cust_ret_m1",
+          "cust_ret_m3",
+          "cust_ret_m6",
+          "cust_ret_m12"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Customer retention",
+        "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+        "metric_ids": [
+          "rev_ret_m12",
+          "cust_ret_m12",
+          "cohorts_m12"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Customer retention",
+        "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+        "metric_ids": [
+          "m3_ret_h1_2010",
+          "m3_ret_h1_2011"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Customer retention",
+        "text": "Among 4,305 new customers with enough history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest year.",
+        "metric_ids": [
+          "repeat_90d",
+          "repeat_90d_eligible",
+          "repeat_rev_share_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Concentration and product",
+        "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+        "metric_ids": [
+          "top1pct_cust_share",
+          "top10pct_cust_share",
+          "top_customer_share"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Concentration and product",
+        "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+        "metric_ids": [
+          "large_customers_p1",
+          "large_rev_share_p1",
+          "large_rev_growth",
+          "small_customers_p1",
+          "small_rev_share_p1",
+          "small_rev_growth"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 6,
+        "errors": []
+      },
+      {
+        "section": "Concentration and product",
+        "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+        "metric_ids": [
+          "top10_sku_share",
+          "skus_for_80pct",
+          "sku_count_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 3,
+        "errors": []
+      },
+      {
+        "section": "Concentration and product",
+        "text": "The United Kingdom accounts for 84.6% of product sales.",
+        "metric_ids": [
+          "uk_share_p1"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 1,
+        "errors": []
+      },
+      {
+        "section": "Questions for management",
+        "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+        "metric_ids": [
+          "anon_rev_growth"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 1,
+        "errors": []
+      },
+      {
+        "section": "Questions for management",
+        "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+        "metric_ids": [
+          "duplicate_line_rows",
+          "overlap_rows"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Questions for management",
+        "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+        "metric_ids": [
+          "orders_per_customer_growth",
+          "m3_ret_change"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Questions for management",
+        "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+        "metric_ids": [
+          "pvm_new_share_p1",
+          "pvm_lost"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Limitations of this analysis",
+        "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+        "metric_ids": [],
+        "status": "QUALITATIVE",
+        "numbers_checked": 0,
+        "errors": []
+      },
+      {
+        "section": "Limitations of this analysis",
+        "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+        "metric_ids": [
+          "existing_customers_dec09",
+          "cohorts_m12"
+        ],
+        "status": "VERIFIED",
+        "numbers_checked": 2,
+        "errors": []
+      },
+      {
+        "section": "Limitations of this analysis",
+        "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+        "metric_ids": [],
+        "status": "QUALITATIVE",
+        "numbers_checked": 0,
+        "errors": []
+      },
+      {
+        "section": "Limitations of this analysis",
+        "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+        "metric_ids": [],
+        "status": "QUALITATIVE",
+        "numbers_checked": 0,
+        "errors": []
+      }
+    ],
+    "memo": {
+      "title": "First-look diligence memo: transaction data review",
+      "sections": [
+        {
+          "heading": "Headline",
+          "claims": [
+            {
+              "text": "Net product revenue grew only 1.9% to \u00a39.33M in the latest year, from \u00a39.16M in the prior year.",
+              "metric_ids": [
+                "rev_growth",
+                "rev_p1",
+                "rev_p0"
+              ]
+            },
+            {
+              "text": "Revenue from identified customers fell 2.0%, while revenue with no customer ID grew 32.1% to \u00a31.40M, so the headline growth rests on sales we cannot tie to any customer.",
+              "metric_ids": [
+                "revenue_growth",
+                "anon_rev_growth",
+                "anon_rev_p1"
+              ]
+            },
+            {
+              "text": "Month-3 customer retention fell 3.9 pts for Jan\u2013Jun 2011 cohorts versus Jan\u2013Jun 2010 cohorts, which is a warning sign for the quality of newer customers.",
+              "metric_ids": [
+                "m3_ret_change"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Data integrity",
+          "claims": [
+            {
+              "text": "The data reconciles fully: every one of 1,067,371 rows is classified once, and raw revenue of \u00a319.29M sits \u00a3361.0k above net product revenue of \u00a318.93M.",
+              "metric_ids": [
+                "raw_rows",
+                "raw_revenue",
+                "raw_to_net_gap",
+                "net_product_revenue"
+              ]
+            },
+            {
+              "text": "A total of 22,523 rows worth \u00a3377.5k were delivered twice across sheets (2.0% of raw revenue) and have been counted once.",
+              "metric_ids": [
+                "overlap_rows",
+                "overlap_revenue",
+                "overlap_share_raw"
+              ]
+            },
+            {
+              "text": "We removed 11,812 exact duplicate lines within invoices, which could be genuine repeat scans, so this needs confirming with management.",
+              "metric_ids": [
+                "duplicate_line_rows"
+              ]
+            },
+            {
+              "text": "13.1% of valid sales have no customer ID, so they are in revenue but outside all customer and cohort analysis.",
+              "metric_ids": [
+                "missing_customer_share"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Growth and its drivers",
+          "claims": [
+            {
+              "text": "Active customers grew 1.3% to 4,293 and average order value grew 1.1% to \u00a3449.75, but orders per active customer fell 4.3% to 4.11x.",
+              "metric_ids": [
+                "customers_growth",
+                "customers_p1",
+                "aov_growth",
+                "aov_p1",
+                "orders_per_customer_growth",
+                "orders_per_customer_p1"
+              ]
+            },
+            {
+              "text": "Identified-customer revenue fell to \u00a37.93M from \u00a38.09M, so the small rise in customer count did not offset customers ordering less often.",
+              "metric_ids": [
+                "revenue_p1",
+                "revenue_p0"
+              ]
+            },
+            {
+              "text": "In the sales bridge, a volume effect of -\u00a31.57M was offset mainly by \u00a32.05M from new products and a mix effect of \u00a3577.7k, with -\u00a3704.2k lost from discontinued products.",
+              "metric_ids": [
+                "pvm_volume",
+                "pvm_new",
+                "pvm_mix",
+                "pvm_lost"
+              ]
+            },
+            {
+              "text": "The price effect was -\u00a3115.9k, which includes changes in discount tiers, and new products made up 21.3% of gross product sales in the latest year.",
+              "metric_ids": [
+                "pvm_price",
+                "pvm_new_share_p1"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Customer retention",
+          "claims": [
+            {
+              "text": "Customer retention is about 21.0% at month 1 and 21.1% at month 3, then 18.4% at both month 6 and month 12.",
+              "metric_ids": [
+                "cust_ret_m1",
+                "cust_ret_m3",
+                "cust_ret_m6",
+                "cust_ret_m12"
+              ]
+            },
+            {
+              "text": "Month-12 revenue retention of 26.4% is above customer retention of 18.4%, which may mean bigger buyers are the ones who stay, though this data cannot confirm it and only 11 cohorts have reached that age.",
+              "metric_ids": [
+                "rev_ret_m12",
+                "cust_ret_m12",
+                "cohorts_m12"
+              ]
+            },
+            {
+              "text": "Month-3 retention fell from 24.0% for Jan\u2013Jun 2010 cohorts to 20.1% for Jan\u2013Jun 2011 cohorts.",
+              "metric_ids": [
+                "m3_ret_h1_2010",
+                "m3_ret_h1_2011"
+              ]
+            },
+            {
+              "text": "Among 4,305 new customers with enough history, 43.8% placed a second order within 90 days, and repeat customers account for 91.0% of identified revenue in the latest year.",
+              "metric_ids": [
+                "repeat_90d",
+                "repeat_90d_eligible",
+                "repeat_rev_share_p1"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Concentration and product",
+          "claims": [
+            {
+              "text": "Sales are concentrated in customers: the top 1% account for 30.7% of identified sales and the top 10% for 60.5%, though the largest single customer is only 3.3%.",
+              "metric_ids": [
+                "top1pct_cust_share",
+                "top10pct_cust_share",
+                "top_customer_share"
+              ]
+            },
+            {
+              "text": "Large accounts (657 customers) provide 46.4% of identified revenue and their revenue changed by -0.6%, while small accounts (3,663 customers) provide 53.6% and their revenue fell 3.3%.",
+              "metric_ids": [
+                "large_customers_p1",
+                "large_rev_share_p1",
+                "large_rev_growth",
+                "small_customers_p1",
+                "small_rev_share_p1",
+                "small_rev_growth"
+              ]
+            },
+            {
+              "text": "The product range is broad and not dependent on hits: the top 10 products make 8.5% of sales and 833 of 3,897 products are needed to reach 80%.",
+              "metric_ids": [
+                "top10_sku_share",
+                "skus_for_80pct",
+                "sku_count_p1"
+              ]
+            },
+            {
+              "text": "The United Kingdom accounts for 84.6% of product sales.",
+              "metric_ids": [
+                "uk_share_p1"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Questions for management",
+          "claims": [
+            {
+              "text": "What are the sales with no customer ID, why did they grow 32.1%, and can they be matched to accounts?",
+              "metric_ids": [
+                "anon_rev_growth"
+              ]
+            },
+            {
+              "text": "Are the 11,812 removed duplicate lines and the 22,523 rows repeated across sheets genuine system artefacts, or real transactions?",
+              "metric_ids": [
+                "duplicate_line_rows",
+                "overlap_rows"
+              ]
+            },
+            {
+              "text": "Why did orders per active customer fall 4.3% and month-3 retention fall 3.9 pts for newer cohorts?",
+              "metric_ids": [
+                "orders_per_customer_growth",
+                "m3_ret_change"
+              ]
+            },
+            {
+              "text": "Are the new products, worth 21.3% of sales, replacing discontinued lines worth -\u00a3704.2k, and how are discount tiers set?",
+              "metric_ids": [
+                "pvm_new_share_p1",
+                "pvm_lost"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Limitations of this analysis",
+          "claims": [
+            {
+              "text": "Most buyers look like trade (wholesale) accounts rather than end consumers, so conclusions about consumer demand or behaviour need care.",
+              "metric_ids": []
+            },
+            {
+              "text": "The 951 customers already active in the first month are excluded from retention averages, and later cohorts have fewer months of history, with 11 cohorts reaching month 12.",
+              "metric_ids": [
+                "existing_customers_dec09",
+                "cohorts_m12"
+              ]
+            },
+            {
+              "text": "The data shows what changed but not why, and it holds no cost, margin or channel information, so profitability and causes of the trends cannot be assessed.",
+              "metric_ids": []
+            },
+            {
+              "text": "Data ends part-way through December 2011, so that month is excluded from year-over-year comparisons.",
+              "metric_ids": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

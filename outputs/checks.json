@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Every row classified exactly once",
+    "status": "PASS",
+    "detail": "1,067,371 of 1,067,371 rows assigned to one bucket",
+    "value": 1067371
+  },
+  {
+    "name": "Revenue tie-out: buckets sum to raw total",
+    "status": "PASS",
+    "detail": "Raw \u00a319,287,250.57; buckets \u00a319,287,250.57; gap \u00a30.00",
+    "value": 0.0
+  },
+  {
+    "name": "Monthly totals reconcile to net product revenue",
+    "status": "PASS",
+    "detail": "Sum of months \u00a318,926,266.18 vs net \u00a318,926,266.18",
+    "value": null
+  },
+  {
+    "name": "Duplicate invoices across source sheets",
+    "status": "WARN",
+    "detail": "22,523 rows (\u00a3377,488) delivered twice; counted once",
+    "value": 377488.45
+  },
+  {
+    "name": "Exact duplicate lines within invoices",
+    "status": "WARN",
+    "detail": "11,812 identical lines (\u00a354,228) removed; could be genuine repeat scans, so flagged for management",
+    "value": 54228.42
+  },
+  {
+    "name": "Sales without a customer ID",
+    "status": "WARN",
+    "detail": "13.1% of valid sales (\u00a32,574,124) have no customer ID; included in revenue, excluded from customer and cohort analysis",
+    "value": 0.13104742264160565
+  },
+  {
+    "name": "Cancellation rate (share of gross product sales)",
+    "status": "PASS",
+    "detail": "3.6% of gross product sales cancelled",
+    "value": 0.0364729011954708
+  },
+  {
+    "name": "Cancellations with no earlier matching sale in the file",
+    "status": "PASS",
+    "detail": "4.1% of cancelled \u00a3 relate to sales before the file starts or not found; netted in the month cancelled",
+    "value": 0.04134544424736585
+  },
+  {
+    "name": "No future-dated transactions",
+    "status": "PASS",
+    "detail": "0 future-dated rows; range 01 Dec 2009 to 09 Dec 2011",
+    "value": null
+  },
+  {
+    "name": "Partial final month",
+    "status": "WARN",
+    "detail": "Data ends 09 Dec 2011; Dec 2011 is partial and excluded from year-over-year comparisons",
+    "value": null
+  },
+  {
+    "name": "Cohort triangle: month 0 is 100% for every cohort",
+    "status": "PASS",
+    "detail": "24 cohorts checked",
+    "value": null
+  },
+  {
+    "name": "Cohort triangle: no cohort retains more customers than it started with",
+    "status": "PASS",
+    "detail": "All cells \u2264 100%",
+    "value": null
+  },
+  {
+    "name": "Left-censored first cohort excluded from averages",
+    "status": "WARN",
+    "detail": "2009-12 cohort holds every pre-existing customer; shown in the triangle but excluded from retention averages",
+    "value": null
+  },
+  {
+    "name": "Driver tree: customers \u00d7 orders/customer \u00d7 AOV = revenue",
+    "status": "PASS",
+    "detail": "Max gap \u00a30.0000",
+    "value": null
+  },
+  {
+    "name": "Price/volume/mix bridge closes to the change in sales",
+    "status": "PASS",
+    "detail": "Residual \u00a30.0000",
+    "value": null
+  }
+]
