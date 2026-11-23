@@ -62,6 +62,7 @@ This is the same "AI proposes, code verifies" pattern I used in [LionMeet](https
 - **"Price" in the bridge is realised price per unit**, so it also moves when customers shift between discount tiers.
 - **The verifier checks numbers, not reasoning.** It guarantees every figure is right and correctly attributed; it can't guarantee the interpretation is right. Example from a real run: the memo said revenue retention above customer retention "suggests surviving customers spend more". It may instead mean bigger buyers are the ones who stay (selection). Every number was correct; the inference wasn't. That caveat now lives in the metric's definition, which the model reads, and the analyst still owns the memo.
 - **Observational data can't prove causation.** For example, whether the fall in retention was caused by anything specific needs a test or a natural experiment.
+- **The cohort comparison overstates the decline in retention.** Excluding the December 2009 cohort removes the worst left-censoring, but early 2010 cohorts still include existing customers who simply hadn't bought in the first few months of the file. Testing it by truncating the data a year later, two-thirds of "new" customers had bought before. Like-for-like, month-3 retention fell about 1.3 points, not 3.9. The fix is a lookback rule (a customer is new only if they haven't bought in the previous 6–12 months), comparing only cohorts with a full lookback.
 
 ## What I'd do with a real data room
 
