@@ -2,7 +2,7 @@
 
 **Turns a raw transaction file into a verified first-look diligence pack in minutes.**
 
-**[Live demo](LIVE_APP_URL)** · built on 1M+ real transactions from the public UCI *Online Retail II* dataset
+**[Live demo](https://first-look-diligence.streamlit.app/)** · built on 1M+ real transactions from the public UCI *Online Retail II* dataset
 
 ![Data integrity](docs/screens/integrity.png)
 
